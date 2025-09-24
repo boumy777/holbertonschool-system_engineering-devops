@@ -1,0 +1,17 @@
+Internet
+  |
+  v
+DNS -> www.foobar.com -> Virtual IP (VIP) managed by VRRP (e.g., keepalived) across two HAProxy LBs
+   /                          \
+  /                            \
+LB1 (HAProxy, active)         LB2 (HAProxy, active/passive or active-active)
+  |                            |
+  v                            v
+Web Tier (2x Nginx) (static content)
+  |                            |
+  v                            v
+App Tier (3x App servers) behind internal LB
+  |                            |
+  v                            v
+DB Tier (Primary + Replicas) on dedicated DB servers
+

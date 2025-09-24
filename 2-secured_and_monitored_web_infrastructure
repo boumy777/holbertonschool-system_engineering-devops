@@ -1,0 +1,23 @@
+Internet
+  |
+  v
+DNS -> www.foobar.com -> public LB IP
+  |
+  v
+Firewall (perimeter FW)  <- 1 of 3 firewalls
+  |
+  v
+Load Balancer (HAProxy) with SSL certificate (TLS termination)
+  |
+  v
+Internal firewall(s) / Security groups  <- 2nd and 3rd firewalls (network and host-level)
+  |
+  v
+App Servers (2) (Nginx -> App server)  (each runs a monitoring client)
+   \                       /
+    \                     /
+     v                   v
+       MySQL Primary (writes)  (monitoring client)
+            |
+         MySQL Replica(s)
+

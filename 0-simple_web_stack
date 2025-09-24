@@ -1,0 +1,11 @@
+Internet (user)  --->  DNS (www.foobar.com -> A 8.8.8.8)
+                        |
+                        v
+                    Single Server (IP 8.8.8.8)
+                    ┌─────────────────────────────┐
+                    │  Nginx (web server)         │  <-- listens on :80/:443
+                    │  App server (e.g. uWSGI)    │  <-- runs application code
+                    │  Application files (code)   │
+                    │  MySQL (database)           │
+                    └─────────────────────────────┘
+

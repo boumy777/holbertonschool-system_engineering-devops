@@ -1,0 +1,18 @@
+Internet (user)
+   |
+   v
+DNS: www.foobar.com -> A -> <load-balancer-ip>
+   |
+   v
+Load Balancer (HAProxy)
+   /                      \
+  v                        v
+Server A                Server B
+(Nginx + App + App files) (Nginx + App + App files)
+   \                       /
+    \                     /
+     v                   v
+          MySQL Primary
+              |
+          MySQL Replica
+
